@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理の勉強法 - Coaching Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        main {
+            padding: 60px 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight strong {
+            color: #764ba2;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .concept-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+        
+        .concept-box strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .example-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .example-item {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .example-item strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .step-container {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: #764ba2;
+            margin-bottom: 8px;
+        }
+        
+        .final-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 40px;
+        }
+        
+        .final-message strong {
+            font-size: 1.3em;
+            display: block;
+            margin-top: 15px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            main {
+                padding: 30px 20px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+            
+            .example-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 物理の勉強法</h1>
+            <p>センスは不要、「型」を制する者が物理を制す</p>
+        </header>
+        
+        <main>
+            <!-- 基本的な考え方 -->
+            <section>
+                <h2>基本的な考え方</h2>
+                
+                <p>「物理ってセンスが必要そう…」って思われがちなんだけど、実はかなり<strong>"型ゲー"</strong>です。</p>
+                
+                <p>まず知ってほしいのは、物理はある程度解法パターンが決まっている科目だということ。</p>
+                
+                <p>もちろん考える力も必要。でも、数学ほど自由度は高くない。</p>
+                
+                <div class="concept-box">
+                    <strong>イメージ：「数学よりも、解法の再現性が高い科目」</strong>
+                </div>
+                
+                <p>だから物理で最優先すべきなのは…</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div style="background: #fee; padding: 15px; border-radius: 6px; border-left: 4px solid #f00;">
+                        <p style="margin: 0;"><strong style="color: #f00;">❌ これではない</strong></p>
+                        <ul style="margin: 10px 0 0 20px;">
+                            <li>難しい発想</li>
+                            <li>ひらめき</li>
+                            <li>センス</li>
+                        </ul>
+                    </div>
+                    <div style="background: #efe; padding: 15px; border-radius: 6px; border-left: 4px solid #080;">
+                        <p style="margin: 0;"><strong style="color: #080;">✅ これが最重要</strong></p>
+                        <p style="margin: 10px 0 0 0;"><strong>基礎解法を徹底的に<br>体に染み込ませること</strong></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 物理で絶対に意識してほしいこと -->
+            <section>
+                <h2>物理で絶対に意識してほしいこと</h2>
+                
+                <section>
+                    <h3>① 解法パターンを覚える</h3>
+                    
+                    <p>物理は「この条件ならこの処理」という型がかなり存在します。</p>
+                    
+                    <div class="example-list">
+                        <div class="example-item">
+                            <strong>力学</strong>
+                            <p>運動方程式</p>
+                        </div>
+                        <div class="example-item">
+                            <strong>電磁気</strong>
+                            <p>保存則</p>
+                        </div>
+                        <div class="example-item">
+                            <strong>波動</strong>
+                            <p>位相差</p>
+                        </div>
+                        <div class="example-item">
+                            <strong>熱</strong>
+                            <p>状態変化</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>超重要：「問題を見た瞬間に、どの型か判別できるか」</strong>
+                        <p style="margin-top: 10px; margin-bottom: 0;">数学みたいに毎回ゼロから発想する科目ではありません。</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>② 単位・文字を雑に扱わない</h3>
+                    
+                    <p>ここ、めちゃくちゃ大事。</p>
+                    
+                    <p>物理が苦手な人ほど…</p>
+                    <ul>
+                        <li>単位を見ていない</li>
+                        <li>文字の意味が曖昧</li>
+                        <li>何を表しているか理解していない</li>
+                    </ul>
+                    
+                    <p>例えば速度なら m/s、力なら N。<br>単位を見るだけで式の意味がかなり分かります。</p>
+                    
+                    <div class="concept-box">
+                        <strong>文字の意味を常に意識する</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>v</strong> は速度</li>
+                            <li><strong>a</strong> は加速度</li>
+                            <li><strong>F</strong> は力</li>
+                        </ul>
+                    </div>
+                    
+                    <p>これだけでミスがかなり減ります。</p>
+                </section>
+                
+                <section>
+                    <h3>③ 必ず図を書く</h3>
+                    
+                    <p>物理は「現象をイメージできるか」が超重要。</p>
+                    
+                    <p>図を書かずに解こうとすると、思考が一気に不安定になります。</p>
+                    
+                    <p>だから、以下を必ず図にする：</p>
+                    <ul>
+                        <li>力の向き</li>
+                        <li>電流の流れ</li>
+                        <li>波の進み方</li>
+                        <li>物体の位置関係</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <strong>雑でもいいから描く。</strong>
+                        <p style="margin-top: 10px; margin-bottom: 0;">図を書くだけで、「何が起きてるか」が整理されます。</p>
+                    </div>
+                </section>
+            </section>
+            
+            <!-- 勉強方法 -->
+            <section>
+                <h2>勉強方法</h2>
+                
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>📥 インプット</h4>
+                            <p>まずは基礎問題で、以下を覚える：</p>
+                            <ul style="margin-left: 20px;">
+                                <li>典型解法</li>
+                                <li>公式の使い方</li>
+                                <li>処理の流れ</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>この段階では「理解しきる」よりも、<br>「まず再現できるようにする」ことが大事。</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>📤 アウトプット</h4>
+                            <p>その後に、以下でチェック：</p>
+                            <ul style="margin-left: 20px;">
+                                <li>模試</li>
+                                <li>他大学の過去問</li>
+                                <li>別の問題集</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>確認するのは「この問題って、どの解法パターンだった？」という視点。</strong></p>
+                            <p>点数だけ見ない。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- まとめ -->
+            <section>
+                <h2>最後に：物理は「型」を増やすゲーム</h2>
+                
+                <p>例えばコンプトン効果にも典型パターンがあるし、力学にも頻出処理があります。</p>
+                
+                <p>結局、決まるのは…</p>
+                
+                <ul>
+                    <li>どれだけ型を知っているか</li>
+                    <li>どれだけ再現できるか</li>
+                </ul>
+                
+                <p style="margin-top: 20px;">数学は問題ごとの自由度が高くて、型が見えにくい。<br>でも物理は比較的「同じ景色」が何回も出てきます。</p>
+                
+                <div class="final-message">
+                    <p style="margin: 0;">だからこそ…</p>
+                    <strong>「基礎解法を徹底的に反復する」<br>これが最強です</strong>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 seistudy coaching. All rights reserved.</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">物理の学習を効果的にサポートします</p>
+        </footer>
+    </div>
+</body>
+</html>
